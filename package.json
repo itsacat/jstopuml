@@ -1,0 +1,14 @@
+{
+  "name": "jstopuml",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "doctrine": "^1.4.0",
+    "lodash": "^4.16.1",
+    "glob": "^7.1.0",
+    "recursive-readdir-sync": "^1.0.6"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}
