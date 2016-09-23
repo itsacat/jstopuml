@@ -3,10 +3,15 @@ var fs = require('fs');
 var recursiveReadSync = require('recursive-readdir-sync');
 var glob = require('glob');
 var lodash = require('lodash');
+var plantuml = require('node-plantuml');
+
 
 //var filesPath = glob.sync('../collectivoo/blocks/l-app/**/*.js');
-var filesPath = glob.sync('../quiz/blocks/l-quiz/**/*.js');
-//var filesPath = glob.sync('../sber-together/**/b-card.js');
+//var filesPath = glob.sync('../quiz/blocks/l-quiz/**/*.js');
+//var filesPath = glob.sync('../sber-together/blocks/l-sber-vmeste/**/*.js');
+//var filesPath = glob.sync('../mission/blocks/l-mission/**/*.js');
+var filesPath = glob.sync('../active-age/blocks/l-active-age/**/*.js');
+
 var classStorage = {};
 
 filesPath.map(function(filePath) {
@@ -128,3 +133,7 @@ umlText += '@enduml';
 
 //console.log(classStorage);
 fs.writeFileSync('uml.pu', umlText, 'utf8');
+
+
+var gen = plantuml.generate("uml.pu", {format: 'png'});
+gen.out.pipe(fs.createWriteStream("uml.png"));
